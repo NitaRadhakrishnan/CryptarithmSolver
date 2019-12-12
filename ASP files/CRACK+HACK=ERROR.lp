@@ -1,4 +1,3 @@
-
 #const base=10.
 letter(c;r;a;k;h;e;o).
 values(0..base-1).
