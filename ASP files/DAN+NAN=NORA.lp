@@ -1,23 +1,10 @@
-%
-% DI+IS=ILL in any base in ASP.
-%
-% Change base by
-%   clingo -c base=11 DI+IS=ILL.lp
-% 
-
 #const base=10.
 
 letter(d;i;s;l).
 values(0..base-1).
-
-% exact 1 occurrence of each letter
 1 { x(L,Val) : values(Val) } 1 :- letter(L).
 
-% 0..1 occurrences of each value
 { x(L,Val) : letter(L) } 1 :- values(Val).
-
-% no digit can be given to two different symbols
-% :- letter(L), letter(L1), x(L,V1), x(L1,V1), L != L1.
 
 smm :- 
    values(D;I;S;L),
