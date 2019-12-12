@@ -221,6 +221,9 @@ if(choice == "FOOD+FAD"):
     solution_asp = get_solver("FOOD+FAD=DIETS.lp")
     solution_asp = convert_asp_soln_to_list(solution_asp)  #converting frozenset object to list 
     compare_solution(solution_asp,user_input)
+  
+if(choice not in ["FOOD+FAD","CRACK+HACK","AT+EAST+WEST","DAN+NAN","DI+IS","LEO+LEE","EAT+THAT","SEEM+MEAN","TESS+SEES"]):
+    print("Oops!sorry, your game does not exist in our current menu")
     
 
                     
