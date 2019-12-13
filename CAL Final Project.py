@@ -28,7 +28,9 @@ def get_solver(filename):
                 if(y!='x'): 
                     solution_list.append(y)
         return(solution_list)
-         
+        
+
+        
 #Function to compare user's input with output from ASP solver 
 def compare_solution(solution_asp,user_input):
     count = 0
@@ -42,14 +44,16 @@ def compare_solution(solution_asp,user_input):
     else:
         print(solution_asp)
         return("Oops!Sorry wrong asnwer. Correct answer is as given above ")
-       
-       
+        
+        
+
 #Function to convert frozenset object to list type 
 #To make it compatible with type of user's solution, for comparison 
 def convert_asp_soln_to_list(solution_asp):
     return([list(x) for x in solution_asp])
    
-#To get user's input, compare with asp solution and return the result of the comparison
+
+
 def main_program(choice):
     #Level 1 puzzles 
     if (choice == "DAN+NAN"):
@@ -68,6 +72,7 @@ def main_program(choice):
         solution_asp = get_solver("DAN+NAN=NORA.lp")
         solution_asp = convert_asp_soln_to_list(solution_asp)  #converting frozenset object to list 
         return(compare_solution(solution_asp,user_input))
+
 
     if(choice == "DI+IS"):
         print("DI+IS=ILL\n")
@@ -104,6 +109,8 @@ def main_program(choice):
         solution_asp = convert_asp_soln_to_list(solution_asp)  #converting frozenset object to list 
         return(compare_solution(solution_asp,user_input))
 
+
+  
     #Level 2 puzzles 
     if (choice=="EAT+THAT"):
         print("EAT+THAT=APPLE\n")
@@ -199,8 +206,8 @@ def main_program(choice):
     if(choice == "FOOD+FAD"):
         print("FOOD+FAD=DIETS\n")
         print("Complete the solution by providing the numbers for the following letters")
-        letters = []
-        user_input=['i','a','t','o','s','e','f','d']
+        letters = ['i','a','t','o','s','e','f','d']
+        user_input=[]
         #Getting user's solution for each letter and appending them to the user_input list 
         for i in letters: 
             value=input(i)
@@ -216,8 +223,6 @@ def main_program(choice):
 
     if(choice not in ["FOOD+FAD","CRACK+HACK","AT+EAST+WEST","DAN+NAN","DI+IS","LEO+LEE","EAT+THAT","SEEM+MEAN","TESS+SEES"]):
         return("Oops!sorry, your game does not exist in our current menu")
-
-
 
 #User is asked to input the game of choice - input should be in string format 
 # Eg: Choose your game to play: EAT+THAT
